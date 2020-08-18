@@ -4,11 +4,11 @@ import android.content.Context
 import cn.smaxlyb.mall.ibrary.utils.storage.MemoryStore
 
 object Mall {
-    val configurator = Configurator.getInstance()
+    private val configurator = Configurator.getInstance()
 
     fun init(context: Context): Configurator {
         MemoryStore.getInstance()
-            .addData(GlobalKeys.APPLICATION, context.applicationContext)
+            .addData(GlobalKeys.APPLICATION_CONTEXT, context.applicationContext)
         return configurator
     }
 

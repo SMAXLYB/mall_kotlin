@@ -1,7 +1,7 @@
 package cn.smaxlyb.mall.ibrary.utils.storage
 
+// 职责:存储全局属性
 class MemoryStore private constructor() {
-
     // 单例
     private object Holder {
         internal val singleton = MemoryStore()

@@ -1,10 +1,13 @@
 package cn.smaxlyb.mall
 
-import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import cn.smaxlyb.mall.ibrary.global.GlobalKeys
-import cn.smaxlyb.mall.ibrary.global.Mall
+import cn.smaxlyb.mall.ibrary.loader.LoaderStyle
+import cn.smaxlyb.mall.ibrary.net.RestClient
+import cn.smaxlyb.mall.ibrary.net.callback.IError
+import cn.smaxlyb.mall.ibrary.net.callback.IFailure
+import cn.smaxlyb.mall.ibrary.net.callback.ISuccess
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +15,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Mall.getConfiguration<Context>(GlobalKeys.APPLICATION_CONTEXT)
+        RestClient.builder()
+            .setUrl("index.php")
+            .setLoader(this,LoaderStyle.LineSpinFadeLoaderIndicator)
+            .onSuccess(object : ISuccess {
+                override fun onSuccess(response: String) {
+                    Toast.makeText(baseContext, response, Toast.LENGTH_SHORT).show()
+                }
+            })
+            .onFailure(object : IFailure {
+                override fun onFailure() {
+                    Toast.makeText(baseContext, "请求失败", Toast.LENGTH_SHORT).show()
+                }
+            })
+            .onError(object : IError {
+                override fun onError(code: Int, msg: String) {
+                    Toast.makeText(baseContext, code, Toast.LENGTH_SHORT).show()
+                }
+            })
+            .build()
+            .get()
     }
-
 }
