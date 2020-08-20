@@ -48,7 +48,14 @@ class RestClient internal constructor(
     }
 
     private val requestCallbacks: Callback<String> =
-        RequestCallbacks(iRequest, iComplete, iSuccess, iError, iFailure,context)
+        RequestCallbacks(
+            iRequest,
+            iComplete,
+            iSuccess,
+            iError,
+            iFailure,
+            context
+        )
 
     fun get() {
         request(HttpMethod.GET)

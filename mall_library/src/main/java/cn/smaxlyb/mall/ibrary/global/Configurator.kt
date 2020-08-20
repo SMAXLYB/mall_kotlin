@@ -1,8 +1,13 @@
 package cn.smaxlyb.mall.ibrary.global
 
 import cn.smaxlyb.mall.ibrary.utils.storage.MemoryStore
+import com.joanzapata.iconify.IconFontDescriptor
+import com.joanzapata.iconify.Iconify
 
 class Configurator private constructor() {
+    // 定义图标集列表
+    private val mIcons = ArrayList<IconFontDescriptor>()
+
     // 单例
     private object Holder {
         internal val singleton = Configurator()
@@ -26,6 +31,16 @@ class Configurator private constructor() {
             .addData(GlobalKeys.HANDLER, mHandler)
     }
 
+    private fun initIcons() {
+        // 循环加入所有图标样式集合
+        if (mIcons.size > 0) {
+            val initializer = Iconify.with(mIcons[0])
+            for (i in 1 until mIcons.size) {
+                initializer.with(mIcons[i])
+            }
+        }
+    }
+
     // 全局api服务器的host
     fun withApiHost(host: String): Configurator {
         mStore.addData(GlobalKeys.API_HOST, host)
@@ -34,6 +49,12 @@ class Configurator private constructor() {
 
     fun configure() {
         mStore.addData(GlobalKeys.IS_CONFIGURE_READY, true)
+        initIcons()
+    }
+
+    fun withIcon(descriptor: IconFontDescriptor): Configurator {
+        mIcons.add(descriptor)
+        return this
     }
 
     private fun checkConfiguration() {

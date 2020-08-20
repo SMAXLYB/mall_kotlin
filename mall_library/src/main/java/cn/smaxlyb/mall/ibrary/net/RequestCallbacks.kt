@@ -1,7 +1,8 @@
-package cn.smaxlyb.mall.ibrary.net.callback
+package cn.smaxlyb.mall.ibrary.net
 
 import android.content.Context
 import cn.smaxlyb.mall.ibrary.loader.MallLoader
+import cn.smaxlyb.mall.ibrary.net.callback.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +21,10 @@ class RequestCallbacks(
         // 请求失败
         iFailure?.onFailure()
         iRequest?.onRequestEnd()
+
+        if (context != null) {
+            onRequestFinish()
+        }
     }
 
     override fun onResponse(call: Call<String>, response: Response<String>) {

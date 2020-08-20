@@ -63,7 +63,10 @@ object MallLoader {
         // 设置指示器
         loadingView.setIndicator(type.name)
         // 展示dialog
-        createDialog(context, loadingView).show()
+        with(createDialog(context, loadingView)) {
+            setCancelable(false)
+            show()
+        }
     }
 
     /**
