@@ -1,8 +1,8 @@
 package cn.smaxlyb.mall.ibrary.net
 
 import android.content.Context
-import cn.smaxlyb.mall.ibrary.loader.LoaderStyle
 import cn.smaxlyb.mall.ibrary.net.callback.*
+import cn.smaxlyb.mall.ibrary.ui.loader.LoaderStyle
 import java.util.*
 
 // 职责: 负责辅助创建restClient

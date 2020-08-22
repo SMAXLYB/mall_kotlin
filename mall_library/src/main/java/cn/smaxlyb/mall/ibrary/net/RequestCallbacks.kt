@@ -1,8 +1,8 @@
 package cn.smaxlyb.mall.ibrary.net
 
 import android.content.Context
-import cn.smaxlyb.mall.ibrary.loader.MallLoader
 import cn.smaxlyb.mall.ibrary.net.callback.*
+import cn.smaxlyb.mall.ibrary.ui.loader.MallLoader
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

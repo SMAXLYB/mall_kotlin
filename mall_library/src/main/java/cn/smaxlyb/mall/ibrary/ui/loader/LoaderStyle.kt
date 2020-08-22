@@ -1,4 +1,4 @@
-package cn.smaxlyb.mall.ibrary.loader
+package cn.smaxlyb.mall.ibrary.ui.loader
 
 enum class LoaderStyle {
     BallPulseIndicator,

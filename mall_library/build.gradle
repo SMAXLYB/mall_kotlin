@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -54,7 +55,18 @@ dependencies {
     api 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
 
     //RecyclerView库
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
     api 'com.choices.divider:RecyclerView_Divider:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
+    api 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
+
+    // 轮播图
+    api 'com.bigkoo:convenientbanner:2.0.5'
+    api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+
+    // 图片加载
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // json
+    api 'com.alibaba:fastjson:1.1.72.android'
 }

@@ -21,7 +21,7 @@ class MallMainFragment : BaseBottomFragment() {
     }
 
     override fun setIndexFragment(): Int {
-        return 1
+        return 0
     }
 
     override fun setClickColor(): Int {

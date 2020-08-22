@@ -23,4 +23,8 @@ abstract class BusinessFragment : BaseFragment() {
 
         return true
     }
+
+    override fun onBackPressedSupport(): Boolean {
+        return exitWithDoubleClick()
+    }
 }

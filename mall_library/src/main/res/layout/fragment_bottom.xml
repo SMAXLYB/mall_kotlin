@@ -11,8 +11,15 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_tab" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EDEDED"
+        android:layout_alignTop="@id/bottom_tab"/>
+
     <!--tab栏-->
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:paddingTop="5dp"
         android:id="@+id/bottom_tab"
         android:layout_width="match_parent"
         android:layout_height="60dp"

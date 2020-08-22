@@ -1,4 +1,4 @@
-package cn.smaxlyb.mall.ibrary.loader
+package cn.smaxlyb.mall.ibrary.ui.loader
 
 import android.content.Context
 import android.view.Gravity
