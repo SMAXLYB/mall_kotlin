@@ -2,8 +2,9 @@ package cn.smaxlyb.mall.fragments.sort
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import cn.smaxlyb.mall.R
+import cn.smaxlyb.mall.fragments.sort.content.ContentFragment
+import cn.smaxlyb.mall.fragments.sort.list.ListFragment
 import cn.smaxlyb.mall.ibrary.fragments.bottom.ContentItemFragment
 
 class SortFragment : ContentItemFragment() {
@@ -12,6 +13,14 @@ class SortFragment : ContentItemFragment() {
     }
 
     override fun onBindView(savedInstanceState: Bundle?, rootView: View) {
-        Toast.makeText(context, "分类初始化完成", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onLazyInitView(savedInstanceState: Bundle?) {
+        super.onLazyInitView(savedInstanceState)
+
+        val listFragment = ListFragment()
+        supportDelegate.loadRootFragment(R.id.sort_list_container, listFragment)
+        val contentFragment = ContentFragment.newInstance(1)
+        supportDelegate.loadRootFragment(R.id.sort_content_container, contentFragment)
     }
 }

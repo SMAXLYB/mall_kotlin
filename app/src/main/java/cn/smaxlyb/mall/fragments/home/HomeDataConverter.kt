@@ -1,13 +1,14 @@
 package cn.smaxlyb.mall.fragments.home
 
+import cn.smaxlyb.mall.ibrary.ui.recycler.IDataConverter
 import cn.smaxlyb.mall.ibrary.ui.recycler.ItemEntity
 import cn.smaxlyb.mall.ibrary.ui.recycler.ItemFields
 import cn.smaxlyb.mall.ibrary.ui.recycler.ItemType
 import com.alibaba.fastjson.JSON
 
-class HomeDataConverter {
+class HomeDataConverter : IDataConverter {
 
-    fun convert(jsonText: String): ArrayList<ItemEntity> {
+    override fun convert(jsonText: String): ArrayList<ItemEntity> {
 
         val entities = ArrayList<ItemEntity>()
 

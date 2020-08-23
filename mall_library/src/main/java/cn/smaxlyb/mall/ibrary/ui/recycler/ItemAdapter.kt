@@ -13,7 +13,7 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 
 //recyclerView的adapter,负责创建viewHolder和关联数据
-class ItemAdapter private constructor(data: MutableList<ItemEntity>) :
+open class ItemAdapter(data: List<ItemEntity>) :
     BaseMultiItemQuickAdapter<ItemEntity, ItemViewHolder>(data), BaseQuickAdapter.SpanSizeLookup,
     OnItemClickListener {
 

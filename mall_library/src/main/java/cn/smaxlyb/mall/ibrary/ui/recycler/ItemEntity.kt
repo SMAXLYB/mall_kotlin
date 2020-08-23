@@ -2,7 +2,7 @@ package cn.smaxlyb.mall.ibrary.ui.recycler
 
 import com.chad.library.adapter.base.entity.MultiItemEntity
 
-// 数据实体类
+// 通用数据实体类,内部用hashMap存储字段
 class ItemEntity private constructor(fields: HashMap<ItemFields, Any>) : MultiItemEntity {
 
     private var mFields: HashMap<ItemFields, Any> = fields
@@ -11,6 +11,10 @@ class ItemEntity private constructor(fields: HashMap<ItemFields, Any>) : MultiIt
         return mFields[ItemFields.ITEM_TYPE] as Int
     }
 
+    fun setFiled(key: ItemFields, value: Any): ItemEntity {
+        mFields[key] = value
+        return this
+    }
 
     fun <T> getField(key: ItemFields): T {
         @Suppress("UNCHECKED_CAST")
@@ -22,7 +26,6 @@ class ItemEntity private constructor(fields: HashMap<ItemFields, Any>) : MultiIt
         private val mFields = HashMap<ItemFields, Any>()
 
         fun setField(key: ItemFields, value: Any?): Builder {
-
             value?.let { mFields[key] = it }
             return this
         }
